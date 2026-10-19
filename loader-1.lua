@@ -17,7 +17,6 @@
 local Players           = game:GetService("Players")
 local TweenService      = game:GetService("TweenService")
 local UserInputService  = game:GetService("UserInputService")
-local RunService        = game:GetService("RunService")
 
 local player    = Players.LocalPlayer
 local playerGui = player:WaitForChild("PlayerGui")
@@ -133,7 +132,6 @@ local SCRIPT_BUTTONS = {
 			loadstring(game:HttpGet("https://raw.githubusercontent.com/napun87/stealanegg/refs/heads/main/chillibakhi.lua"))()
 		end)
 	end },
-end },
 { Name = "Chilli V4 Pro", Toggle = false, Callback = function()
 		runRemote("Chilli V4 Pro", function()
 			loadstring(game:HttpGet("https://raw.githubusercontent.com/napun87/stealanegg/refs/heads/main/ChilliHubPro.lua"))()
@@ -225,6 +223,10 @@ local function tween(obj, props, t, style, dir)
 	local tw = TweenService:Create(obj, TweenInfo.new(t or 0.25, style or EASE.Quint, dir or DIR.Out), props)
 	tw:Play()
 	table.insert(KillTweens, tw)
+	tw.Completed:Once(function()
+		local i = table.find(KillTweens, tw)
+		if i then table.remove(KillTweens, i) end
+	end)
 	return tw
 end
 
@@ -1633,21 +1635,6 @@ local function playIntro()
 	startParticles(ambient, 12, function() return alive end, "Glow")
 
 	-- Corner brackets
-	for _, c in ipairs({ {0, 0}, {1, 0}, {0, 1}, {1, 1} }) do
-		local ax, ay = c[1], c[2]
-		local ox = ax == 0 and 16 or -16
-		local oy = ay == 0 and 16 or -16
-		for _, dim in ipairs({ {24, 2}, {2, 24} }) do
-			table.insert({}, make("Frame", {
-				AnchorPoint = Vector2.new(ax, ay),
-				Position = UDim2.new(ax, ox, ay, oy),
-				Size = UDim2.fromOffset(dim[1], dim[2]),
-				BackgroundColor3 = col("Accent"),
-				BackgroundTransparency = 1,
-			}, card))
-		end
-	end
-
 	local brackets = {}
 	for _, c in ipairs({ {0, 0}, {1, 0}, {0, 1}, {1, 1} }) do
 		local ax, ay = c[1], c[2]
