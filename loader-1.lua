@@ -128,7 +128,19 @@ local SCRIPT_BUTTONS = {
 			loadstring(game:HttpGet("https://raw.githubusercontent.com/swaggayoung581-sudo/special-computing-machine/refs/heads/main/SAE_HUB_MENU_SKY_ACCESSORY_ANIM_FIXED_FOV_ANIM_COMPACT_SAVE_CONFIG.lua%20(1).txt"))()
 		end)
 	end },
+{ Name = "Chilli V6 Pro", Toggle = false, Callback = function()
+		runRemote("Chilli V6 Pro", function()
+			loadstring(game:HttpGet("https://raw.githubusercontent.com/napun87/stealanegg/refs/heads/main/chillibakhi.lua"))()
+		end)
+	end },
+end },
+{ Name = "Chilli V4 Pro", Toggle = false, Callback = function()
+		runRemote("Chilli V4 Pro", function()
+			loadstring(game:HttpGet("https://raw.githubusercontent.com/napun87/stealanegg/refs/heads/main/ChilliHubPro.lua"))()
+		end)
+	end },
 }
+
 
 local MORE_BUTTONS = {
 	{ Name = "OPTION 1", Toggle = true, Callback = function(enabled)
