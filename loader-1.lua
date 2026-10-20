@@ -28,8 +28,8 @@ if previous then previous:Destroy() end
 -- 1. SETTINGS
 ------------------------------------------------------------------------
 local SETTINGS = {
-	Title         = "V O I D   S C R I P T   L O A D E R",
-	Subtitle      = "// VOID INTERFACE  ·  BY COLS",
+	Title         = "VØID LOADER HUB",
+	Subtitle      = "// ENTER THE VOID  ·  LOADER HUB",
 	LogoId        = "",
 	LogoFallback  = "",
 	ShowIntro     = true,
@@ -47,7 +47,7 @@ local SETTINGS = {
 local function runRemote(name, fn)
 	local ok, err = pcall(fn)
 	if not ok then
-		warn("[VOID SCRIPT LOADER] error in '" .. tostring(name) .. "': " .. tostring(err))
+		warn("[VØID LOADER HUB] error in '" .. tostring(name) .. "': " .. tostring(err))
 	end
 end
 
@@ -166,7 +166,7 @@ local WHITE = Color3.new(1, 1, 1)
 local BLACK = Color3.new(0, 0, 0)
 
 local THEMES = {
-	Void    = { Bg = rgb(5, 5, 8),    Panel = rgb(10, 10, 16),   Button = rgb(16, 16, 26),  Accent = rgb(160, 180, 255), Glow = rgb(100, 120, 255), Highlight = rgb(245, 246, 255), Text = rgb(232, 234, 245), Sub = rgb(100, 104, 122), Line = rgb(32, 34, 50) },
+	Void    = { Bg = rgb(5, 5, 12),    Panel = rgb(12, 10, 24),   Button = rgb(20, 17, 36),  Accent = rgb(167, 109, 255), Glow = rgb(0, 225, 255), Highlight = rgb(248, 244, 255), Text = rgb(237, 233, 255), Sub = rgb(137, 128, 165), Line = rgb(53, 39, 79) },
 	Ink     = { Bg = rgb(4, 4, 4),    Panel = rgb(11, 11, 11),   Button = rgb(19, 19, 19),  Accent = rgb(240, 240, 240), Glow = rgb(160, 160, 160), Highlight = rgb(255, 255, 255), Text = rgb(230, 230, 230), Sub = rgb(100, 100, 100), Line = rgb(30, 30, 30) },
 	Ember   = { Bg = rgb(10, 6, 6),   Panel = rgb(18, 11, 10),   Button = rgb(28, 17, 14),  Accent = rgb(255, 90, 45),   Glow = rgb(255, 150, 60),  Highlight = rgb(255, 230, 210), Text = rgb(250, 240, 235), Sub = rgb(150, 110, 95),  Line = rgb(56, 28, 20) },
 	Static  = { Bg = rgb(5, 8, 10),   Panel = rgb(10, 15, 19),   Button = rgb(16, 24, 30),  Accent = rgb(0, 235, 210),   Glow = rgb(255, 45, 165),  Highlight = rgb(220, 255, 250), Text = rgb(228, 250, 246), Sub = rgb(95, 145, 145),  Line = rgb(20, 50, 55) },
@@ -617,7 +617,7 @@ if hasLogo then
 	make("UIAspectRatioConstraint", { AspectRatio = 1 }, lg)
 	corner(lg, 6)
 else
-	label(badgeFrame, { Size = UDim2.fromScale(1, 1), Text = "V", TextSize = 16, ZIndex = 6 }, "Highlight", true)
+	label(badgeFrame, { Size = UDim2.fromScale(1, 1), Text = "Ø", TextSize = 16, ZIndex = 6 }, "Highlight", true)
 end
 
 -- Title block
@@ -631,7 +631,7 @@ local titleBlock = make("Frame", {
 local TitleLabel = label(titleBlock, {
 	Position = UDim2.fromOffset(0, 2),
 	Size = UDim2.new(1, 0, 0, 22),
-	Text = "VOID SCRIPT LOADER",
+	Text = "VØID LOADER HUB",
 	TextSize = 18,
 	TextXAlignment = Enum.TextXAlignment.Left,
 	ZIndex = 5,
@@ -992,7 +992,7 @@ local function createButton(parent, def)
 	local function fire()
 		if btn.Callback then
 			local ok, err = pcall(btn.Callback, btn.State)
-			if not ok then warn("[VOID SCRIPT LOADER] error in '" .. tostring(def.Name) .. "': " .. tostring(err)) end
+			if not ok then warn("[VØID LOADER HUB] error in '" .. tostring(def.Name) .. "': " .. tostring(err)) end
 		end
 	end
 
@@ -1481,7 +1481,7 @@ if hasLogo then
 	make("UIAspectRatioConstraint", { AspectRatio = 1 }, li)
 	corner(li, 8)
 else
-	label(LBtn, { Size = UDim2.fromScale(1, 1), Text = "V", TextSize = 22 }, "Accent", true)
+	label(LBtn, { Size = UDim2.fromScale(1, 1), Text = "Ø", TextSize = 22 }, "Accent", true)
 end
 
 -- Pulse ring animation on launcher
@@ -1672,7 +1672,7 @@ local function playIntro()
 		AnchorPoint = Vector2.new(0.5, 0.5),
 		Position = UDim2.new(0.5, 0, 0, textY),
 		Size = UDim2.new(1, 0, 0, 32),
-		Text = "VOID SCRIPT LOADER",
+		Text = "VØID LOADER HUB",
 		TextSize = 30,
 		TextTransparency = 1,
 	}, nil, true)
@@ -1684,7 +1684,7 @@ local function playIntro()
 		AnchorPoint = Vector2.new(0.5, 0.5),
 		Position = UDim2.new(0.5, 0, 0, textY + 26),
 		Size = UDim2.fromOffset(240, 14),
-		Text = "𝘾𝙊𝙇𝙎 ✘ Void",
+		Text = "VØID  ·  LOADER HUB",
 		TextSize = 11,
 		TextTransparency = 1,
 	}, "Accent", true)
@@ -1770,7 +1770,7 @@ task.spawn(function()
 	if SETTINGS.ShowIntro then
 		local ok, err = pcall(playIntro)
 		if not ok then
-			warn("[VOID SCRIPT LOADER] intro error: " .. tostring(err))
+			warn("[VØID LOADER HUB] intro error: " .. tostring(err))
 			local i = gui:FindFirstChild("Intro")
 			if i then i:Destroy() end
 			openUI()
