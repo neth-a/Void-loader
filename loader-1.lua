@@ -54,7 +54,7 @@ end
 local SCRIPT_BUTTONS = {
 	{ Name = "Break a Steal an Egg", Toggle = false, Callback = function()
 		runRemote("Break a Steal an Egg", function()
-			loadstring(game:HttpGet("https://raw.githubusercontent.com/joustingmatch/Ouroboros/main/loader.lua"))()
+			loadstring(game:HttpGet("https://raw.githubusercontent.com/4LynxX/Lynx/refs/heads/main/LynxxMain.lua"))()
 		end)
 	end },
 	{ Name = "Fyy", Toggle = false, Callback = function()
